@@ -1,5 +1,17 @@
 package org.sert2521.gamename
 
+import edu.wpi.first.wpilibj.Preferences
+
+/** Checks if a log is loggable with the current log level. */
+private fun isLoggable(level: LogLevel) =
+        level >= when (Preferences.getInstance().getString("log_level", "i")) {
+            "v" -> LogLevel.VERBOSE
+            "d" -> LogLevel.DEBUG
+            "w" -> LogLevel.WARN
+            "e" -> LogLevel.ERROR
+            else -> LogLevel.INFO
+        }
+
 enum class LogLevel {
     /** Priority constant for the log method; use Log.v. */
     VERBOSE,
@@ -30,5 +42,3 @@ private fun log(level: LogLevel, tag: String?, message: Any) {
     if (!isLoggable(level)) return
     println("$level/${if (tag == null || tag.isEmpty()) autoTag else tag}: $message")
 }
-
-private fun isLoggable(level: LogLevel) = level >= LOG_LEVEL

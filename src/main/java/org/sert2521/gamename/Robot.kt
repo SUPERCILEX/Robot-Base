@@ -4,8 +4,6 @@ import edu.wpi.first.wpilibj.IterativeRobot
 import edu.wpi.first.wpilibj.command.Scheduler
 import edu.wpi.first.wpilibj.livewindow.LiveWindow
 
-val LOG_LEVEL = LogLevel.INFO
-
 /**
  * This is the main robot class which calls various methods depending on the current game stage.
  */
