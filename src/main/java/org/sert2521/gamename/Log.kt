@@ -20,13 +20,13 @@ private val autoTag: String get() {
     return ""
 }
 
-fun logV(tag: String? = null, message: String) = log(LogLevel.VERBOSE, tag, message)
-fun logD(tag: String? = null, message: String) = log(LogLevel.DEBUG, tag, message)
-fun logI(tag: String? = null, message: String) = log(LogLevel.INFO, tag, message)
-fun logW(tag: String? = null, message: String) = log(LogLevel.WARN, tag, message)
-fun logE(tag: String? = null, message: String) = log(LogLevel.ERROR, tag, message)
+fun verbose(tag: String? = null, message: Any) = log(LogLevel.VERBOSE, tag, message)
+fun debug(tag: String? = null, message: Any) = log(LogLevel.DEBUG, tag, message)
+fun info(tag: String? = null, message: Any) = log(LogLevel.INFO, tag, message)
+fun warn(tag: String? = null, message: Any) = log(LogLevel.WARN, tag, message)
+fun error(tag: String? = null, message: Any) = log(LogLevel.ERROR, tag, message)
 
-private fun log(level: LogLevel, tag: String?, message: String) {
+private fun log(level: LogLevel, tag: String?, message: Any) {
     if (!isLoggable(level)) return
     println("$level/${if (tag == null || tag.isEmpty()) autoTag else tag}: $message")
 }
