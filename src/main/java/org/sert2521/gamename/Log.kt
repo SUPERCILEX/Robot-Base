@@ -2,7 +2,7 @@ package org.sert2521.gamename
 
 import edu.wpi.first.wpilibj.Preferences
 
-/** Checks if a log is loggable with the current log level. */
+/** Checks if a log is loggable with the provided log level from SmartDashboard. */
 private fun isLoggable(level: LogLevel) =
         level >= when (Preferences.getInstance().getString("log_level", "i")) {
             "v" -> LogLevel.VERBOSE
