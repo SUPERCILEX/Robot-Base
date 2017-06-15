@@ -18,17 +18,16 @@ private val autoTag: String get() {
     Thread.currentThread().stackTrace
             .filter { it.fileName != "LogKt" }
             .forEach { return it.className }
-    return ""
+    log(LogLevel.ERROR, "Log", "Couldn't find tag")
+    return "CRITICAL LOG FAILURE"
 }
 
-fun verbose(tag: String? = null, message: Any) = log(LogLevel.VERBOSE, tag, message)
-fun debug(tag: String? = null, message: Any) = log(LogLevel.DEBUG, tag, message)
-fun info(tag: String? = null, message: Any) = log(LogLevel.INFO, tag, message)
-fun warn(tag: String? = null, message: Any) = log(LogLevel.WARN, tag, message)
-fun error(tag: String? = null, message: Any) = log(LogLevel.ERROR, tag, message)
+fun verbose(message: Any) = log(LogLevel.VERBOSE, message = message)
+fun debug(message: Any) = log(LogLevel.DEBUG, message = message)
+fun info(message: Any) = log(LogLevel.INFO, message = message)
+fun warn(message: Any) = log(LogLevel.WARN, message = message)
+fun error(message: Any) = log(LogLevel.ERROR, message = message)
 
-private fun log(level: LogLevel, tag: String?, message: Any) {
-    if (isLoggable(level)) {
-        println("$level/${if (tag == null || tag.isEmpty()) autoTag else tag}: $message")
-    }
+private fun log(level: LogLevel, tag: String = autoTag, message: Any) {
+    if (isLoggable(level)) println("$level/$tag: $message")
 }
