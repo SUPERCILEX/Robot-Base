@@ -12,18 +12,7 @@ private fun isLoggable(level: LogLevel) =
             else -> LogLevel.INFO
         }
 
-enum class LogLevel {
-    /** Priority constant for the log method; use Log.v. */
-    VERBOSE,
-    /** Priority constant for the log method; use Log.d. */
-    DEBUG,
-    /** Priority constant for the log method; use Log.i. */
-    INFO,
-    /** Priority constant for the log method; use Log.w. */
-    WARN,
-    /** Priority constant for the log method; use Log.e. */
-    ERROR
-}
+enum class LogLevel { VERBOSE, DEBUG, INFO, WARN, ERROR }
 
 private val autoTag: String get() {
     Thread.currentThread().stackTrace
