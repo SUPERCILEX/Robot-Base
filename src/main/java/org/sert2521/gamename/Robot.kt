@@ -9,8 +9,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow
  */
 class Robot : IterativeRobot() {
     override fun robotInit() {
+        info("Robot starting...")
         Drivetrain
     }
+
+    override fun autonomousInit() = info("Autonomous starting...")
+
+    override fun teleopInit() = info("Teleop starting...")
 
     override fun autonomousPeriodic() = Scheduler.getInstance().run()
 
