@@ -16,8 +16,8 @@ enum class LogLevel { VERBOSE, DEBUG, INFO, WARN, ERROR }
 
 private val autoTag: String get() {
     Thread.currentThread().stackTrace
-            .filter { it.fileName != "LogKt" }
-            .forEach { return it.className }
+            .filter { it.fileName != "Thread.java" && it.fileName != "Log.kt" }
+            .forEach { return it.fileName.split(".")[0] }
     log(LogLevel.ERROR, "Log", "Couldn't find tag")
     return "CRITICAL LOG FAILURE"
 }
