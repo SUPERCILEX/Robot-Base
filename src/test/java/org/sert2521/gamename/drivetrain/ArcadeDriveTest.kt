@@ -2,6 +2,8 @@ package org.sert2521.gamename.drivetrain
 
 import org.junit.Before
 import org.junit.Test
+import org.sert2521.gamename.ContinuousRangeTester
+import org.sert2521.gamename.assertMotorSpeeds
 import org.sert2521.gamename.drivetrain.commands.ArcadeDrive
 import org.strongback.command.CommandTester
 import org.strongback.components.Motor
