@@ -2,10 +2,11 @@ package org.sert2521.gamename.Drivetrain
 
 import org.junit.Before
 import org.junit.Test
-import org.sert2521.gamename.Drivetrain.commands.TankDrive
+import org.sert2521.gamename.ContinuousRangeTester
+import org.sert2521.gamename.assertMotorSpeeds
+import org.sert2521.gamename.drivetrain.commands.TankDrive
 import org.strongback.command.CommandTester
 import org.strongback.components.Motor
-import org.strongback.components.Motor.compose
 import org.strongback.mock.Mock
 
 /**
@@ -31,8 +32,8 @@ class TankDriveTest() {
         rearLeft = Mock.stoppedMotor()
         rearRight = Mock.stoppedMotor()
 
-        left = compose(frontLeft, rearLeft)
-        right = compose(frontRight, rearRight)
+        left = Motor.compose(frontLeft, rearLeft)
+        right = Motor.compose(frontRight, rearRight)
 
         motors = listOf(left, right)
 

@@ -1,11 +1,10 @@
-package org.sert2521.gamename.Drivetrain
+package org.sert2521.gamename.drivetrain
 
 import org.junit.Before
 import org.junit.Test
-import org.sert2521.gamename.Drivetrain.commands.ArcadeDrive
+import org.sert2521.gamename.drivetrain.commands.ArcadeDrive
 import org.strongback.command.CommandTester
 import org.strongback.components.Motor
-import org.strongback.components.Motor.compose
 import org.strongback.drive.TankDrive
 import org.strongback.mock.Mock
 
@@ -32,8 +31,8 @@ class ArcadeDriveTest() {
         rearLeft = Mock.stoppedMotor()
         rearRight = Mock.stoppedMotor()
 
-        left = compose(frontLeft, rearLeft)
-        right = compose(frontRight, rearRight)
+        left = Motor.compose(frontLeft, rearLeft)
+        right = Motor.compose(frontRight, rearRight)
 
         motors = listOf(left, right)
 

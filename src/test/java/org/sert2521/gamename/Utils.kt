@@ -1,4 +1,4 @@
-package org.sert2521.gamename.Drivetrain
+package org.sert2521.gamename
 
 import org.fest.assertions.Assertions.assertThat
 import org.strongback.components.Motor

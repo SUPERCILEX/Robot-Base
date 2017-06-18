@@ -1,12 +1,12 @@
-package org.sert2521.gamename.Drivetrain
+package org.sert2521.gamename.drivetrain
 
 import edu.wpi.first.wpilibj.command.Subsystem
-import org.sert2521.gamename.Drivetrain.commands.ArcadeDrive
 import org.sert2521.gamename.FRONT_LEFT_MOTOR
 import org.sert2521.gamename.FRONT_RIGHT_MOTOR
 import org.sert2521.gamename.OI
 import org.sert2521.gamename.REAR_LEFT_MOTOR
 import org.sert2521.gamename.REAR_RIGHT_MOTOR
+import org.sert2521.gamename.drivetrain.commands.ArcadeDrive
 import org.strongback.Strongback
 import org.strongback.components.Motor
 import org.strongback.drive.TankDrive
