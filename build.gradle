@@ -23,7 +23,10 @@ apply plugin: "net.saliman.cobertura"
 apply plugin: "com.github.kt3k.coveralls"
 deploy.dependsOn "build"
 
-cobertura.coverageFormats = ["html", "xml"]
+cobertura {
+    coverageFormats = ["html", "xml"]
+    coverageExcludes = [".*org.sert2521.gamename.Robot", ".*org.sert2521.gamename.OI"]
+}
 
 repositories {
     jcenter()
