@@ -11,15 +11,19 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "gradle.plugin.jaci.openrio.gradle:GradleRIO:2017.1.5"
+        classpath "net.saliman:gradle-cobertura-plugin:2.4.0"
+        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.1"
     }
 }
 
 apply plugin: "java"
 apply plugin: "kotlin"
 apply plugin: "jaci.openrio.gradle.GradleRIO"
+apply plugin: "net.saliman.cobertura"
+apply plugin: "com.github.kt3k.coveralls"
 deploy.dependsOn "build"
 
-sourceCompatibility = 1.8
+cobertura.coverageFormats = ['html', 'xml']
 
 repositories {
     jcenter()
@@ -35,6 +39,8 @@ dependencies {
 
     testCompile "org.easytesting:fest-assert:1.4"
     testCompile "junit:junit:4.12"
+
+    testRuntime "org.slf4j:slf4j-api:1.7.10"
 }
 
 compileKotlin {
