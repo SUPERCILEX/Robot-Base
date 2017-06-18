@@ -1,12 +1,13 @@
 package org.sert2521.gamename.Drivetrain
 
-import edu.wpi.first.wpilibj.command.Command
 import edu.wpi.first.wpilibj.command.Subsystem
+import org.sert2521.gamename.Drivetrain.commands.ArcadeDrive
 import org.sert2521.gamename.FRONT_LEFT_MOTOR
 import org.sert2521.gamename.FRONT_RIGHT_MOTOR
 import org.sert2521.gamename.OI
 import org.sert2521.gamename.REAR_LEFT_MOTOR
 import org.sert2521.gamename.REAR_RIGHT_MOTOR
+import org.strongback.Strongback
 import org.strongback.components.Motor
 import org.strongback.drive.TankDrive
 import org.strongback.hardware.Hardware
@@ -30,22 +31,7 @@ object Drivetrain : Subsystem() {
         drive = TankDrive(left, right)
     }
 
-    fun teleoperatedDrive() {
-        val pitch = OI.left.pitch.read()
-        val roll = OI.left.roll.read()
-
-        drive.arcade(pitch, roll)
-    }
-
     override fun initDefaultCommand() {
-        defaultCommand = object : Command() {
-            init {
-                requires(this@Drivetrain)
-            }
-
-            override fun execute() = teleoperatedDrive()
-
-            override fun isFinished() = false
-        }
+        Strongback.submit(ArcadeDrive(drive, OI.left.pitch, OI.left.roll))
     }
 }
