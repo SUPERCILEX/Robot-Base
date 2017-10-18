@@ -20,5 +20,3 @@ class TankDrive(private val drive: TankDrive,
 
     override fun end() = drive.stop()
 }
-
-
