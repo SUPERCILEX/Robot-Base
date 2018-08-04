@@ -19,6 +19,7 @@ const val RED_LED_PORT = 6
 const val BLUE_LED_PORT = 7
 
 // Auto
+// TODO: Update these with real values
 const val ENCODER_TICKS_PER_REVOLUTION = 8192
 const val WHEEL_DIAMETER = 0.15
 const val WHEELBASE_WIDTH = 0.7
