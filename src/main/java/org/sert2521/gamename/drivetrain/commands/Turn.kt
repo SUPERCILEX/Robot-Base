@@ -28,6 +28,7 @@ class Turn(angle: Double) : Command() {
     override fun execute() = turnCommand.isCompleted
 }
 
+// TODO: Tune PID
 private class NavxTurn(private val angle: Double) : AngleDriver(p = 0.005, d = 0.01) {
     private var startAngle: Double by Delegates.notNull()
 
@@ -48,6 +49,7 @@ private class NavxTurn(private val angle: Double) : AngleDriver(p = 0.005, d = 0
     }
 }
 
+// TODO: Tune PID
 private class EncoderTurn(private val angle: Double) : PidCommand(p = 0.0000725, d = 0.00007) {
     private var leftStart: Int by Delegates.notNull()
     private var rightStart: Int by Delegates.notNull()
